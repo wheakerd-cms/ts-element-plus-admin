@@ -4,7 +4,7 @@ import {defineRoutes} from "@/app/admin/stores/routesStore";
 import type {RouteRecordRaw} from "vue-router";
 import router from "@/router";
 import {useRouterStoreWithout} from "@/app/admin/stores/routerStore";
-import {loginApi} from "@/app/admin/api/index";
+import {LoginApi} from "@/app/admin/api/index";
 import type {loginApiTypes} from "@/app/admin/api/index/type";
 import LoginBoxBg from "@/assets/admin/svgs/login-box-bg.svg?component";
 
@@ -16,7 +16,7 @@ const form: Reactive<loginApiTypes> = reactive({
 });
 
 const onSubmit = async () => {
-	const res = await loginApi(form);
+	const res = await LoginApi(form);
 
 	if (!!res) {
 		routerStore.setAddRouters(defineRoutes as RouteRecordRaw []);
