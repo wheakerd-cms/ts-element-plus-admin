@@ -1,50 +1,36 @@
 {
-	"extends": [
-		"@tsconfig/node20/tsconfig.json",
-		"@vue/tsconfig/tsconfig.dom.json"
-	],
-	"include": [
-		"vite.config.*",
-		"vitest.config.*",
-		"cypress.config.*",
-		"nightwatch.conf.*",
-		"playwright.config.*",
-		"env.d.ts",
-		"src/**/*",
-		"src/**/*.vue",
-		"src/**/*.ts",
-		"src/**/*.tsx"
-	],
-	"exclude": [
-		"src/**/__tests__/*"
-	],
 	"compilerOptions": {
-		"composite": true,
-		"noEmit": true,
-		"strict": true,
-		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-		"target": "esnext",
-		"module": "ESNext",
-		"moduleResolution": "node",
-		"jsx": "preserve",
-		"lib": [
-			"ES2023",
-			"DOM",
-			"ESNext"
-		],
-		"types": [
-			"node",
-			"vue",
-			"@vue/runtime-core",
-			"vite/client",
-			"element-plus/global"
-		],
-		"baseUrl": "./",
+		"baseUrl": ".",
 		"paths": {
 			"@/*": [
 				"src/*"
 			]
-		}
+		},
+		"target": "ES2020",
+		"lib": [
+			"DOM",
+			"ES2020"
+		],
+		"module": "ESNext",
+		"jsx": "preserve",
+		"jsxImportSource": "vue",
+		"strict": true,
+		"noEmit": true,
+		"skipLibCheck": true,
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		"moduleResolution": "bundler",
+		"useDefineForClassFields": true,
+		"allowImportingTsExtensions": true
 	},
-	"files": []
+	"include": [
+		"src",
+		"/types/**/*.d.ts"
+	],
+	"ts-node": {
+		"compilerOptions": {
+			"module": "CommonJS",
+			"esModuleInterop": true
+		}
+	}
 }
